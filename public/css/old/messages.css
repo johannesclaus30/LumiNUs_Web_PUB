@@ -1,0 +1,303 @@
+
+
+/* =================================
+   OVERRIDE DEFAULT CONTAINER
+================================= */
+.div-dashboard-container {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+.messages-layout {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    width: 100%;
+}
+
+/* =================================
+   PANEL CONTAINERS
+================================= */
+.chat-panel {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contacts-panel {
+    width: 320px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* =================================
+   CHAT PANEL STYLES
+================================= */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #EBEBEB;
+    gap: 15px;
+}
+
+.chat-header-info h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.chat-header-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-timestamp {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    margin: 10px 0;
+}
+
+.message-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    max-width: 70%;
+}
+
+.message-row.received {
+    align-self: flex-start;
+}
+
+.message-row.sent {
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.msg-bubble {
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.message-row.received .msg-bubble {
+    background-color: #EBEBEB;
+    color: #333;
+    border-bottom-left-radius: 4px;
+}
+
+.message-row.sent .msg-bubble {
+    background-color: #32418c;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+}
+
+/* Chat Input Footer */
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid #EBEBEB;
+    gap: 15px;
+}
+
+.chat-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: #ffffff;
+}
+
+.btn-attach {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+    padding: 0;
+}
+
+.chat-input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
+
+.btn-send {
+    background-color: #32418c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-send:hover { background-color: #273373; }
+
+/* =================================
+   CONTACTS PANEL STYLES
+================================= */
+.contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 15px;
+}
+
+.contacts-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #32418c;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.header-actions button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #32418c;
+    background: transparent;
+    color: #32418c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.header-actions button.solid {
+    background-color: #32418c;
+    color: white;
+}
+
+.contacts-tabs {
+    display: flex;
+    background-color: #EBEBEB;
+    border-radius: 20px;
+    margin: 0 20px 15px;
+    padding: 4px;
+}
+
+.contacts-tabs .tab {
+    flex: 1;
+    border: none;
+    padding: 6px 0;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contacts-tabs .tab.active {
+    background-color: #32418c;
+    color: #ffffff;
+}
+
+.contacts-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 10px;
+    gap: 5px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.contact-item:hover { background-color: #F9FAFB; }
+.contact-item.active { background-color: #F4F6F9; }
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contact-name {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-batch {
+    margin: 0 0 2px 0;
+    font-size: 11px;
+    color: #888;
+}
+
+.contact-preview {
+    margin: 0;
+    font-size: 11px;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* TEMPORARY AVATAR PLACEHOLDERS */
+.avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    background-color: #32418c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.avatar-placeholder.small {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+}

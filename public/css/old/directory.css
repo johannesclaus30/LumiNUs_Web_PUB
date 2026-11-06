@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* OTHER CODES */
+
+.directory-container {
+    height: auto;
+    width: auto; 
+    background-color: #EBEBEB;
+    font-family: 'Poppins', sans-serif;
+    flex: 1;
+    /* CHANGE THIS: */
+    padding-right: 15px;
+    margin: 15px;
+    margin-left: 0px;
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensures padding doesn't increase the total width */
+
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden;
+}
+
+.search-container {
+   width: 100%;
+   justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.search-bar {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    width: 80%; /* This will now stay within the 15px padding */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box; /* Always good practice for inputs */
+}
+
+.user-container {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between user boxes */
+}
+.user-box {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    width: 100%;
+    min-height: 90px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box; /* Always good practice for inputs */
+
+    align-items: center;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 18px;
+}
+.primary-info {
+    height: auto;
+    width: 340px;
+    color: #444242;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px !important;
+    gap: 0px; 
+}
+.graduation-info,
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    min-width: 130px;
+    flex-shrink: 0;
+}
+.graduation-info {
+    width: 150px;
+}
+.contact-info {
+    width: 250px;
+}
+.field-label {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #7d7d7d;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.name {
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0; 
+}
+.program {
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0; 
+}
+.graduation-year {
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #444242;
+    margin: 0;
+}
+.email {
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    color: #444242;
+    margin: 0;
+}
+.user-photo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 100%;
+
+    border-width: 3px;
+    border-style: solid;   /* <--- This is the missing piece! */
+    border-color: #fbd117;
+}
+
+.tools-container {
+    color: #32418c;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Create button and modal styles */
+.create-button {
+    margin-left: 12px;
+    background-color: #32418c;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 20%;
+}
+.create-button:hover { opacity: 0.95; }
+
+.btn { padding: 8px 12px; border-radius: 8px; cursor: pointer; border: none; }
+.btn-primary { background: #32418c; color:#fff; }
+.btn-secondary { background: #f1f1f1; color:#333; }
+
+/* 1. Modal Overlay */
+.modal {
+    display: none; /* Controlled by JS: change to 'flex' to show */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh; /* Use vh to ensure it covers the viewport height */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    
+    /* The centering magic */
+    align-items: center; 
+    justify-content: center;
+    
+    /* Keep the modal inset from the viewport edges */
+    overflow-y: auto; 
+    padding: 36px; /* Buffer for small screens */
+    
+    /* 👇 ADD THIS EXACT LINE 👇 */
+    box-sizing: border-box; 
+    
+    scrollbar-width: thin;
+    scrollbar-color: rgba(50, 65, 140, 0.65) rgba(255, 255, 255, 0.15);
+}
+
+
+
+.modal::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar,
+.directory-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.modal::-webkit-scrollbar-track,
+.modal-content::-webkit-scrollbar-track,
+.directory-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+}
+
+.modal::-webkit-scrollbar-thumb,
+.modal-content::-webkit-scrollbar-thumb,
+.directory-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(50, 65, 140, 0.85), rgba(35, 44, 94, 0.95));
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal::-webkit-scrollbar-button,
+.modal-content::-webkit-scrollbar-button,
+.directory-container::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* 2. Content Container */
+.modal-content {
+    background: #fff;
+    border-radius: 20px;
+    width: min(820px, calc(100vw - 72px));
+    max-height: calc(100vh - 160px);
+    overflow: hidden;
+    padding: 28px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    
+    /* Reset margins to let Flexbox handle the centering */
+    margin: 0; 
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.modal-tabbar {
+    display: flex;
+    gap: 10px;
+    padding: 0 0 16px;
+    margin-top: 18px;
+    border-bottom: 1px solid #e5e8f2;
+    background: #fff;
+    z-index: 2;
+}
+
+.modal-tab {
+    border: 1px solid #d4d9ea;
+    background: #f8f9ff;
+    color: #4c587f;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-tab:hover {
+    border-color: #32418c;
+    color: #32418c;
+}
+
+.modal-tab.active {
+    background: #32418c;
+    color: #fff;
+    border-color: #32418c;
+    box-shadow: 0 8px 20px rgba(50, 65, 140, 0.18);
+}
+
+.modal-body {
+    padding-top: 18px;
+    padding-right: 10px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(50, 65, 140, 0.65) rgba(255, 255, 255, 0.15);
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(50, 65, 140, 0.7), rgba(35, 44, 94, 0.9));
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.modal-body::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.modal-section {
+    display: none;
+}
+
+.modal-section-active {
+    display: block;
+}
+
+/* 3. Close Button Style */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: #f1f1f1;
+    border: none;
+    font-size: 22px;
+    color: #888;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-button:hover {
+    background: #32418c;
+    color: #fff;
+}
+
+/* 4. Enhanced Inputs */
+.modal-body input[type="text"], 
+.modal-body input[type="email"] {
+    width: 100%;
+    padding: 14px 22px;
+    border-radius: 25px;
+    border: 2px solid #EBEBEB; /* Thicker, lighter border */
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.modal-body input[type="date"],
+.modal-body input[type="file"],
+.modal-body select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 18px;
+    border-radius: 25px;
+    border: 1px solid #B4B2B2;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    background: #fff;
+}
+
+.modal-body input[type="file"] {
+    padding: 10px 18px;
+}
+
+.upload-card-panel {
+    margin-top: 4px;
+    padding: 16px;
+    border: 1px solid #d9def0;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fbfcff 0%, #f4f6ff 100%);
+}
+
+.upload-card-panel label {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.upload-card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.upload-card-row input[type="file"] {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid #cfd5ea;
+    background: #fff;
+}
+
+.upload-card-hint {
+    margin: 8px 0 0;
+    color: #66708a;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.modal-body input:focus {
+    outline: none;
+    border-color: #32418c;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(50, 65, 140, 0.1); /* Subtle glow */
+}
+
+/* 5. Action Buttons */
+.btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(50, 65, 140, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: #f9f9f9;
+    border-color: #32418c;
+}
+
+/* 6. Custom File Upload Button */
+.bulk-import input[type="file"]::file-selector-button {
+    background-color: #32418c;
+    color: #fbd117;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.bulk-import input[type="file"]::file-selector-button:hover {
+    opacity: 0.9;
+}
+
+/* Small responsive tweaks */
+@media (max-width:600px) {
+    .user-box {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 12px;
+    }
+
+    .primary-info,
+    .graduation-info,
+    .contact-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .tools-container {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .primary-info { width: 100%; }
+    .email { display: none; }
+}
+
+/* 1. Force the containers to stack correctly */
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* 2. Fix the Label Chaos - Force them above the inputs */
+.modal-body label {
+    display: block !important; /* Forces label to its own line */
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* 3. Fix the Input Chaos - Force them to fill the container */
+.modal-body input[type="text"], 
+.modal-body input[type="email"],
+.modal-body input:not([type="file"]) {
+    display: block !important;
+    width: 100% !important; /* Occupy full width of the parent div */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #B4B2B2;
+}
+
+/* 4. Fix the Side-by-Side Row (Program & Email) */
+.modal-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.modal-row > div {
+    flex: 1; /* Ensures both halves are equal width */
+    min-width: 220px; /* Prevents overflow on smaller screens */
+}
+
+.bulk-import-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px dashed #b6bdd9;
+    background: #f7f8fc;
+}
+
+.bulk-import-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.bulk-import-header h3 {
+    margin: 0;
+    color: #32418c;
+    font-size: 18px;
+}
+
+.bulk-import-header p {
+    margin: 6px 0 0;
+    color: #5b6177;
+    font-size: 14px;
+}
+
+.bulk-import-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.bulk-import-body input[type="file"] {
+    flex: 1;
+    min-width: 240px;
+}
+
+.bulk-import-status {
+    margin: 0;
+    color: #5b6177;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: calc(100vw - 20px);
+        max-height: calc(100vh - 44px);
+        padding: 20px;
+    }
+
+    .modal-header {
+        flex-direction: column;
+    }
+
+    .modal-tabbar {
+        flex-wrap: wrap;
+    }
+
+    .modal-body {
+        max-height: calc(100vh - 180px);
+    }
+
+    .modal-row > div {
+        min-width: 100%;
+    }
+
+    .bulk-import-header {
+        flex-direction: column;
+    }
+}
+
+/* 5. Improve the Buttons */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    justify-content: flex-start;
+}
+
+.modal-actions .btn {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 1. Adjust the white container so the new button fits nicely inside */
+.modal-body input[type="file"]#card_photo {
+    padding: 6px 12px; 
+    display: flex;
+    align-items: center;
+}
+
+/* 2. Force the gray "Choose File" button to match your Bulk Import style */
+#card_photo::-webkit-file-upload-button, /* For Safari/Chrome */
+#card_photo::file-selector-button {      /* Standard */
+    background-color: #32418c;
+    color: #fbd117;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 3. Add the hover effect */
+#card_photo::-webkit-file-upload-button:hover,
+#card_photo::file-selector-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(50, 65, 140, 0.2);
+}

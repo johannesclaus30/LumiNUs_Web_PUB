@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =================================
+   SCROLLABLE CONTAINER
+================================= */
+
+.admin-scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(147, 147, 147) transparent;
+}
+
+/* Chrome / Edge / Safari */
+.admin-scrollable::-webkit-scrollbar {
+    width: 10px;
+}
+
+.admin-scrollable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-scrollable::-webkit-scrollbar-thumb {
+    background-color: rgb(147, 147, 147);
+    border-radius: 15px;
+    border: 2px solid #EBEBEB;
+}
+
+.admin-scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #fbd117;
+}
+
+
+/* ================================
+   LARAVEL TAILWIND PAGINATION FIX
+   ================================ */
+
+/* Center the paginator */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    
+}
+
+/* Base nav reset */
+.pagination-container nav {
+    display: flex;
+    justify-content: center;
+}
+
+/* 🔴 REMOVE mobile pagination block (Prev / Next only) */
+.pagination-container nav > div.flex.justify-between {
+    display: none !important;
+}
+
+/* 🟢 FORCE desktop pagination block to show */
+.pagination-container nav > div.hidden {
+    display: flex !important;
+}
+
+/* Hide "Showing x to y of z results" */
+.pagination-container nav p {
+    display: none !important;
+}
+
+/* Main pagination row */
+.pagination-container .inline-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== BUTTON STYLES ===== */
+.pagination-container a,
+.pagination-container span {
+    min-width: 44px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border-radius: 10px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    background-color: #32418c;
+    color: #ffffff;
+
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+/* Hover */
+.pagination-container a:hover {
+    background-color: #ffffff;
+    color: #32418c;
+}
+
+
+/* Active page – Tailwind-compatible */
+.pagination-container [aria-current="page"],
+.pagination-container [aria-current="page"] span {
+    background-color: #FBD117 !important;
+    color: #32418C !important;
+    font-weight: 600;
+}
+
+
+/* Disabled buttons */
+.pagination-container span[aria-disabled="true"] {
+    background-color: #dcdcdc;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* OTHER CODES ARE HERE */
+
+html, body {
+    background-color: #EBEBEB;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-main {
+    background-color: #32418c;
+    width: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 0 40px;
+    border-bottom: 10px solid #fbd117;
+}
+
+.nav-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.nav-admin-profile {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.nav-admin-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #fbd117;
+    background-color: #ffffff00;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.nav-admin-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.nav-admin-greeting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-admin-greeting span {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.nav-admin-greeting strong {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .nav-main {
+        padding: 0 18px;
+        gap: 16px;
+    }
+
+    .nav-logo {
+        height: 34px;
+    }
+
+    .nav-admin-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .nav-admin-greeting span {
+        font-size: 14px;
+    }
+
+    .nav-admin-greeting strong {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-admin-greeting {
+        display: none;
+    }
+
+    .nav-main {
+        justify-content: space-between;
+    }
+}
+.nav-text {
+    font-family: 'Poppins', sans-serif;
+    color: #fbd117;
+    font-size: 38px;
+}
+
+.links-labels {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+/* LAYOUT WRRAPPER */
+.layout-wrapper {
+    display: flex;
+    height: calc(100vh - 90px); /* Full height minus nav */
+    overflow: hidden;
+}
+
+.div-dashboard-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    height: auto;
+    width: auto; /* Full height minus nav */
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    flex: 1;
+    padding: 15px;
+    border-radius: 18px;
+}
+
+
+.admin-menu-buttons,
+.admin-menu-current,
+.admin-menu-signout {
+    display: block;          /* Makes full button clickable */
+    text-decoration: none;   /* Remove underline */
+}
+
+.admin-menu {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 680px;
+    width: 280px; /* Full height minus nav */
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent shrinking */
+    padding: 15px;
+    border-radius: 18px;
+    overflow: hidden; /* no scrolling here */
+
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    /* height: 100%;  Ensures full column height */
+}
+
+.admin-menu-current {
+    background-color: #32418c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fbd117;
+    text-align: center;
+    margin: 14px;
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.admin-menu-buttons {
+    background-color: #EBEBEB;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #32418c;
+    text-align: center;
+    margin: 14px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth effect */
+    text-decoration: none;
+}
+.admin-menu-buttons:hover {
+    background-color: #dcdcdc;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.admin-menu-signout{
+    background-color: #EB3535;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin: 14px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.text-titles {
+    color: #32418c;
+    font-size: 20pt;
+    font-weight: 600;
+    margin: 10px;
+    text-align: center;
+}

@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* OTHER CODES */
+
+button {
+    all: unset;
+    box-sizing: border-box;
+}
+
+.perks-panel-header .pagination-container {
+    margin: 0 !important;
+    margin-bottom: 0px !important;
+    justify-content: flex-end;
+}
+
+.bottom-pagination {
+    margin-bottom: 50px;
+}
+
+.perks-panel {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    height: 100%;
+    width: auto; /* Full height minus nav */
+    background-color: #EBEBEB;
+    font-family: 'Poppins', sans-serif;
+    flex: 7;
+    padding-top: 15px;
+    padding-right: 15px;
+    border-radius: 18px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden;
+}
+
+.perks-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-perks-container {
+    margin-top: 0px;
+}
+
+.add-perks-button {
+    background-color: #32418c;
+    color: #fbd117;
+    font-weight: 500;
+    width: 250px;
+    height: auto;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.add-perks-button:hover {
+    background-color: #28316e;     /* slightly darker blue */
+}
+
+/* Default (inactive) “Archived Perks” button → gray */
+.archived-toggle {
+    background-color: #6c757d;      /* gray */
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+.archived-toggle:hover {
+    background-color: #5a6268;      /* slightly darker gray */
+}
+
+/* Active state when viewing archived list → light green */
+.archived-toggle.active {
+    background-color: #28a745;      /* green */
+    color: #ffffff;
+}
+.archived-toggle.active:hover {
+    background-color: #218838;      /* darker green on hover */
+}
+
+.perks-container {
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.perks-title-description {
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-left: 15px;
+    flex: 1 1 320px;
+    min-width: 0;
+    width: auto;
+}
+
+.perks-title-text {
+    font-family: 'Poppins', sans-serif;
+    color: #444242;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.perks-description-text {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #696969;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.perks-image-container {
+    background-color: #F9F9F9;
+    /* allow the container to grow with its content and stack items vertically */
+    min-height: 220px;
+    height: auto;
+    width: auto;
+    flex: 1 1 320px;
+    min-width: 280px;
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.perks-image-text {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #444242;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.perks-container .perk-image {
+    /* small gallery thumbnails inside the perks list */
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.perks-tools {
+    padding-right: 5px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 180px;
+    flex: 0 0 180px;
+    min-width: 180px;
+}
+.perks-tools-analytics {
+    background-color: #F9F9F9;
+    height: 130px;
+    
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+/* CSS FOR CREATE OR ADD NEW PERKS */
+
+.perks-create-container {
+    font-family: 'Poppins', sans-serif;
+    flex: 7;
+    padding: 10px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.perks-create-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #32418c;
+    margin-top: 0px;
+    /* margin-bottom: 20px; */
+}
+
+label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444242;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.textarea-style {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #444242;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #B4B2B2;
+    resize: vertical;
+}
+.textarea-description {
+    height: 300px;
+    max-height: 320px; /* prevent it from growing too large */
+    overflow: auto; /* allow internal scroll instead of pushing layout */
+}
+
+.perks-details {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0px;
+    align-items: flex-start; /* keep columns aligned to top to avoid overlap */
+}
+
+.new-perks-title-description {
+    padding-right: 5px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 500px;
+}
+
+.date-image-container {
+    padding-right: 5px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+}
+
+.date-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-input-wrapper input[type="date"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #444242;
+
+    padding: 12px 45px 12px 18px;
+    border-radius: 25px;
+    border: 1px solid #B4B2B2;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.date-input-wrapper input[type="date"]:focus {
+    outline: none;
+    border-color: #32418c;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 18px;
+    color: #777;
+}
+
+.image-upload-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* keep a minimum size but allow internal scrolling so previews don't overlap other content */
+    min-height: 220px;
+    border: 1px dashed #B4B2B2;
+    border-radius: 18px;
+
+    cursor: pointer;
+    background-color: #F9F9F9;
+
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.image-upload-box {
+    padding: 12px; /* keep inner contents away from dashed border */
+}
+.image-upload-box .perk-image {
+    /* preview images inside the upload box */
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    display: block;
+}
+
+.perk-images-preview {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 8px;
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 140px; /* keep previews contained and scrollable */
+}
+
+/* Center placeholder text when there are no previews */
+#uploadPlaceholder {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -10%);
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+    width: calc(100% - 24px);
+}
+
+/* Ensure preview container keeps some min-height so layout stays stable */
+.perk-images-preview {
+    min-height: 120px;
+    align-items: center;
+}
+
+.preview-item { display:inline-block; margin-right:8px; }
+.preview-item img { display:block; border-radius:8px; }
+
+.attachment-counter {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: #ffffffcc;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+
+/* Make status select match the date input width inside the right column */
+.date-image-container select.textarea-style {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Action buttons in forms */
+.form-action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-direction: row; /* place buttons in a row */
+    width: 100%;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.perk-submit-btn {
+    background-color: #32418c;
+    color: #fbd117;
+    width: 100%; /* compact button to stay visible */
+    height: auto;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    padding: 12px 20px;
+    border-radius: 25px;
+
+    cursor: pointer;
+    text-align: center;
+
+    align-self: flex-start; /* prevents stretching */
+}
+
+.perk-submit-btn:hover {
+    opacity: 0.9;
+}
+
+.perk-submit-btn:active {
+    transform: scale(0.98);
+}
+
+.perk-edit-archive-btn {
+    background-color: #32418c;
+    color: #fbd117;
+    width: 160px;
+    height: auto;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    padding: 12px 28px;
+    border-radius: 25px;
+
+    cursor: pointer;
+    text-align: center;
+
+    align-self: flex-start; /* ✅ prevents stretching */
+}
+
+.perk-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; /* Match parent width */
+    align-items: center; /* Center the buttons within the column */
+}
+
+.perk-action-buttons .perk-edit-archive-btn {
+    /* Remove margin-left: 15px and the complex width calc */
+    width: 100%; 
+    margin-left: 0; 
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Ensure the form doesn't shrink the button inside it */
+.perk-action-buttons form { 
+    margin: 0; 
+    width: 100%; 
+}
+
+@media (max-width: 1100px) {
+    .perks-container {
+        flex-direction: column;
+    }
+
+    .perks-title-description,
+    .perks-image-container,
+    .perks-tools {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+
+    .perks-tools {
+        flex-basis: auto;
+    }
+
+    .perk-edit-archive-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.perk-unarchive-btn {
+    background-color: #6c757d; /* grey for unarchive button */
+    color: #ffffff;
+}
+.discard-btn {
+    background: #fff;
+    color: #32418c;
+    border: 1px solid #B4B2B2;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.discard-btn:hover { opacity: 0.95; }
+.perk-edit-archive-btn:hover {
+    opacity: 0.9;
+}
+.perk-edit-archive-btn:active {
+    transform: scale(0.98);
+}
+
+/* Buttons */
+.edit-btn {
+    color: #32418c;
+    background: #fbd117;
+    text-decoration: none;
+    width: 100%;
+}
+
+.archive-btn {
+    color: #FFFFFF;
+    background: #818181;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Lightbox/Modal Styles */
+        .custom-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            cursor: default;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Make thumbnails look clickable */
+        .perk-image {
+            cursor: zoom-in;
+            transition: opacity 0.2s;
+        }
+
+        .perk-image:hover {
+            opacity: 0.9;
+        }
